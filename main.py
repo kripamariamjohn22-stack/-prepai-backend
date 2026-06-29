@@ -5,6 +5,7 @@ from groq import Groq
 import os
 from dotenv import load_dotenv
 import json
+from fastapi.middleware.cors import CORSMiddleware
 
 load_dotenv()
 
@@ -13,7 +14,7 @@ app = FastAPI()
 # This allows your React app to call this API
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["https://prepai-frontend-eight.vercel.app"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
